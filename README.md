@@ -13,7 +13,7 @@ A imagem contém Ubuntu 18.04, PHP 7.2 e suas bibliotecas, o gerenciador de paco
 O comando para montar a imagem deverá ser executado no mesmo local do arquivo Dockerfile.
 
 ~~~
-$ ddocker build -t inec/php-sqlserver:1.0 .
+$ docker build -t inec/php-sqlserver:1.0 .
 ~~~
 
 Para montar o container executar o comando dentro da pasta do projeto.
