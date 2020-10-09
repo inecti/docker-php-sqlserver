@@ -28,4 +28,4 @@ Acessar o terminal do container
 docker exec -it [CONTAINER] /bin/bash 
 ~~~
 
-OBS.: O PWD siginifica que o volume será criado na pasta em que o comando está sendo executado ou seja a pasta doseu projeto, por exemplo var/www/html.
+OBS.: O PWD siginifica que o volume será criado na pasta em que o comando está sendo executado ou seja a pasta do seu projeto, por exemplo var/www/html.
