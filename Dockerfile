@@ -65,14 +65,25 @@ RUN cd /usr/local/bin && curl -sS https://getcomposer.org/installer | php -- --f
 RUN apt-get install -y locales && echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && locale-gen
 
 # change default to port to 81
-COPY configs/ccbs.conf /etc/apache2/sites-available/000-default.conf
+COPY configs/ccbs.conf  /etc/apache2/sites-available/ccbs.conf
+COPY configs/ccbs-ssl.conf  /etc/apache2/sites-available/ccbs-ssl.conf
+COPY configs/ssl /etc/apache2/ssl
+
+RUN mkdir /var/www/html/ccbs
 
 RUN apt-get install -y nano
 
 # enable mod_rewrite
-RUN a2enmod rewrite && service apache2 restart
+RUN a2enmod rewrite
+# enable mod criptografado  
+RUN a2enmod ssl
+# enable o site
+RUN a2ensite ccbs
+# reiniciar o apache
+RUN service apache2 restart
 
 EXPOSE 80
+EXPOSE 443
 
 WORKDIR /var/www/html/
 
